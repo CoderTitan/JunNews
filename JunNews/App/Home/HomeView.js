@@ -14,6 +14,7 @@ import {
 import JunNetRequest from 'JunNetRequest'
 import HomeNewsCell from 'HomeNewsCell'
 import HomeSwiperView from 'HomeSwiperView'
+import JunNavigation from "JunNavigation";
 
 export default class HomeView extends Component {
     constructor(props){

@@ -17,9 +17,8 @@ import
     Image
 }from 'react-native'
 import PropTypes from 'prop-types'
+import AppConstant from 'AppConstant'
 
-
-var kScreenWidth = Dimensions.get('window').width;
 
 export default class JunHighButton extends Component {
     static propTypes = {
@@ -40,6 +39,15 @@ export default class JunHighButton extends Component {
         onPress: PropTypes.func
     }
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            highlighted: false
+        }
+    }
+
+
     render(){
         return (
             <TouchableOpacity style={[styles.btnStyle, this.props.buttonStyle]}
@@ -59,15 +67,22 @@ export default class JunHighButton extends Component {
                               activeOpacity={this.props.highImage ? 1 : 0.5}
             >
                 {/*标题*/}
-                {this.props.title ? <Text style={this.state.highlighted && this.props.highTitleStyle ? this.props.highTitleStyle : this.props.titleStyle}>{this.props.title}</Text>}
+                {this.props.title ? <Text style={this.state.highlighted && this.props.highTitleStyle ? this.props.highTitleStyle : this.props.titleStyle}>{this.props.title}</Text> : null}
 
                 {/*图片*/}
                 {this.props.image ? <Image style={[{marginLeft:3}, this.props.imageStyle]}
-                                           source={{uri: this.state.highlighted && this.props.imageStyle ? this.props.highImage : this.props.image}}/>}
+                                           source={{uri: this.state.highlighted && this.props.imageStyle ? this.props.highImage : this.props.image}}/> : null}
             </TouchableOpacity>
         )
     }
 
+    _setTitle(){
+
+    }
+
+    _setImage(){
+
+    }
 }
 
 // 样式表

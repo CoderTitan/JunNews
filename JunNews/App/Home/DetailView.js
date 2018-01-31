@@ -11,6 +11,8 @@ import {
     WebView
 } from 'react-native';
 import JunNetRequest from "JunNetRequest";
+import JunHighButton from "JunHighButton";
+import JunNavigation from "JunNavigation";
 
 export default class DetailView extends Component {
 
@@ -53,14 +55,30 @@ export default class DetailView extends Component {
 
     render(){
         return (
-            <WebView style={{flex:1}}
-                     source={{html: this.state.body}}
-            />
+            <View>
+                <JunNavigation
+                    title='首页'
+                    titleStyle={{color:'red', fontSize:18}}
+                    leftBarButtonItem={this._backButton()}
+                />
+                <WebView style={{flex:1}}
+                         source={{html: this.state.body}}
+                />
+            </View>
         )
     }
 
+    //返回按钮
+    _backButton(){
+        return (
+            <JunHighButton
+                image="btn_backitem"
+                onPress={()=>{
 
-
+                }}
+            />
+        )
+    }
 
 
 

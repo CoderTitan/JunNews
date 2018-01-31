@@ -15,15 +15,32 @@ import
     TouchableOpacity,
     Image
 }from 'react-native'
-// import PropTypes from 'prop-types'
-
-
-var kScreenWidth = Dimensions.get('window').width;
+import Swiper from 'react-native-swiper';
+import JunHighButton from "JunHighButton";
+import AppConstant from 'AppConstant';
+import MainView from "../Main/MainView";
 
 export default class GuidView extends Component {
     render(){
+        console.log('1--', this.props.navigator)
         return (
-            <View style={{backgroundColor:'red', flex:1}}/>
+            <Swiper loop={false}
+            >
+                <Image style={{width:AppConstant.kScreenW, height:AppConstant.kScreenH}} source={{uri:'slider1'}}/>
+                <View style={{alignItems:'center'}}>
+                    <Image style={{width:AppConstant.kScreenW, height:AppConstant.kScreenH}} source={{uri:'slider2'}}/>
+                    <JunHighButton title='立即体验'
+                                   buttonStyle={styles.btnStyle}
+                                   titleStyle={{color:'red', fontSize:18}}
+                                   onPress={()=>{
+                                       this.props.navigator.replace({
+                                           component:MainView
+                                       })
+                                   }}
+                    />
+
+                </View>
+            </Swiper>
         )
     }
 
@@ -32,8 +49,12 @@ export default class GuidView extends Component {
 // 样式表
 var styles = StyleSheet.create({
     btnStyle: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+        position:'absolute',
+        bottom:60,
+        width:150,
+        height:40,
+        borderWidth:1,
+        borderColor:'red',
+        borderRadius:6
     }
 })

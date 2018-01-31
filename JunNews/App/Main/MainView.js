@@ -42,13 +42,13 @@ export default class MainView extends Component {
                 {this._renderTabbarItems(1, 5, <ReadView navigator={this.props.navigator}/>)}
 
                 {/*直播*/}
-                {this._renderTabbarItems(2, <LiveView navigator={this.props.navigator}/>)}
+                {this._renderTabbarItems(2, 0, <LiveView navigator={this.props.navigator}/>)}
 
                 {/*视频*/}
-                {this._renderTabbarItems(3, <VideoView navigator={this.props.navigator}/>)}
+                {this._renderTabbarItems(3, 0, <VideoView navigator={this.props.navigator}/>)}
 
                 {/*我的*/}
-                {this._renderTabbarItems(4, <MineView navigator={this.props.navigator}/>)}
+                {this._renderTabbarItems(4, 0, <MineView navigator={this.props.navigator}/>)}
             </TabNavigator>
         )
     }
@@ -76,7 +76,7 @@ export default class MainView extends Component {
                                       selectIndex:selectIndex
                                   })
                               }}
-                              // renderBadge={badgeText > 0 ? this._renderBadge.bind(this, badgeText) : null}
+                              renderBadge={badgeText > 0 ? this._renderBadge.bind(this, badgeText) : null}
                               selected={this.state.selectIndex == selectIndex}
             >
                 {component}

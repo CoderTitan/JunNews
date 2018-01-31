@@ -27,8 +27,6 @@ export default class ReadView extends Component {
     render(){
         return(
             <View>
-                <JunNavigation title='畅读'
-                />
                 <View style={{backgroundColor:'yellow', flex:1, justifyContent:'center', alignItems:'center'}}>
                     <Text>要闻</Text>
                 </View>

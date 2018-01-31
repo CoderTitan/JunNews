@@ -39,6 +39,14 @@ export default class JunSelectedButton extends Component {
         onPress: PropTypes.func
     }
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            selected: false
+        }
+    }
+
     render(){
         return (
             <TouchableOpacity style={[styles.btnStyle, this.props.buttonStyle]}
@@ -49,11 +57,11 @@ export default class JunSelectedButton extends Component {
                               }}
             >
                 {/*标题*/}
-                {this.props.title ? <Text style={this.state.selected && this.props.selectedTitleStyle ? this.props.selectedTitleStyle : this.props.titleStyle}>{this.props.title}</Text>}
+                {this.props.title ? <Text style={this.state.selected && this.props.selectedTitleStyle ? this.props.selectedTitleStyle : this.props.titleStyle}>{this.props.title}</Text>: null}
 
                 {/*图片*/}
                 {this.props.image ? <Image style={[{marginLeft:3}, this.props.imageStyle]}
-                                           source={{uri: this.state.selected && this.props.imageStyle ? this.props.selectedImage : this.props.image}}/>}
+                                           source={{uri: this.state.selected && this.props.imageStyle ? this.props.selectedImage : this.props.image}}/>: null}
             </TouchableOpacity>
         )
     }
